@@ -1,21 +1,24 @@
-# 得物招聘「投递记录」页面
+# 招聘「投递记录」页面 Demo
 
-这是一个纯静态前端项目，无需安装 Node.js 依赖。
+以下为各公司「投递记录 / 应聘记录」页面的前端演示版本（视觉复刻，非官方页面，不连接真实招聘系统）。
+
+## 在线访问
+
+| 公司 | 链接 |
+|------|------|
+| 得物 | https://zyd-go.github.io/dewu-recruitment/ |
+| 滴滴 | https://zyd-go.github.io/dewu-recruitment/didi.html |
+| 理想汽车 | https://zyd-go.github.io/dewu-recruitment/lixiang.html |
+| 蔚来 | https://zyd-go.github.io/dewu-recruitment/nio.html |
+| 影石 Insta360 | https://zyd-go.github.io/dewu-recruitment/insta360.html |
 
 ## 文件说明
-- `index.html`：页面本体，CSS 和 JavaScript 已全部内嵌
-- `vercel.json`：Vercel 静态部署配置
-- `netlify.toml`：Netlify 静态部署配置
 
-## 部署到 Vercel
-把整个项目目录上传/导入到 Vercel 即可。
-这是纯静态站点，不需要填写 Build Command，也不需要安装依赖。
+- `index.html`：得物投递记录页面（CSS/JS 内嵌）
+- `didi.html` / `lixiang.html` / `nio.html` / `insta360.html`：对应四家公司页面
+- `vercel.json` / `netlify.toml`：Vercel / Netlify 静态部署配置（备用）
 
-## 部署到 Netlify
-把整个项目目录部署为静态站点即可。
+## 说明
 
-## 本地预览
-直接双击 `index.html`，或使用任意本地静态服务器打开。
-
-## 注意
-页面目前是视觉复刻和前端演示版本，不连接真实招聘系统或后台接口。
+- 纯静态站点，无需安装依赖，无后端接口。
+- 均为视觉复刻与前端演示，不连接真实招聘系统或后台。
