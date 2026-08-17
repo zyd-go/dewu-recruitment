@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Application｜NIO Careers Demo</title>
+<style>
+:root{--blue:#1b6fff;--sky:#eaf4ff;--ink:#17202a;--muted:#728091}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#f6f9fc;color:var(--ink)}
+.top{height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid #eaf0f5}
+.logo{font-size:22px;font-weight:800;letter-spacing:1px}.logo span{font-weight:500;color:#7d8b99;margin-left:10px}.nav{display:flex;gap:30px;color:#5f6c79;font-size:14px}.user{font-size:13px;color:#7b8792}
+.hero{padding:72px 24px 54px;text-align:center;background:linear-gradient(180deg,#eef7ff 0,#f6f9fc 72%);position:relative}
+.ring{width:72px;height:72px;border:2px solid var(--blue);border-radius:50%;margin:0 auto 22px;position:relative}.ring:after{content:"";position:absolute;inset:12px;border:1px solid rgba(27,111,255,.35);border-radius:50%}
+.hero h1{font-size:42px;margin:0 0 12px;font-weight:600}.hero p{margin:0;color:#7c8b99}
+.wrap{max-width:1050px;margin:0 auto;padding:22px 22px 80px}.toolbar{display:flex;justify-content:space-between;align-items:center;margin:16px 0}.toolbar h2{font-size:19px;font-weight:600}.pill{font-size:12px;color:#557089;background:#e9f2f9;padding:7px 12px;border-radius:999px}
+.card{background:#fff;border:1px solid #e6edf3;border-radius:28px;padding:34px 38px;box-shadow:0 22px 70px rgba(74,112,146,.08)}
+.meta-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.date{font-size:12px;color:#9aa7b2;letter-spacing:.5px}.card h3{font-size:28px;font-weight:600;margin:12px 0 10px;line-height:1.35}.sub{color:#738191;font-size:14px}.status{padding:12px 16px;background:#f2f7ff;color:var(--blue);border-radius:14px;font-size:14px;white-space:nowrap}
+.progress{display:flex;align-items:center;margin-top:34px}.node{flex:1;text-align:center;position:relative;color:#9aa5af;font-size:12px}.node:before{content:"";position:absolute;left:-50%;right:50%;top:9px;height:1px;background:#dce6ef}.node:first-child:before{display:none}.dot{width:20px;height:20px;border-radius:50%;background:#e4ebf1;border:6px solid #fff;box-shadow:0 0 0 1px #dce6ef;margin:0 auto 11px;position:relative;z-index:2}.node.done,.node.current{color:#334150}.node.done .dot,.node.current .dot{background:var(--blue);box-shadow:0 0 0 1px var(--blue)}.node.current .dot{box-shadow:0 0 0 1px var(--blue),0 0 0 6px #e6f0ff}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.info div{background:#f8fafc;border-radius:16px;padding:15px}.info small{display:block;color:#9aa6b1;margin-bottom:6px}.info b{font-size:14px;font-weight:500}
+.note{text-align:center;color:#a6b1bb;font-size:13px;margin-top:26px}.demo{position:fixed;right:18px;bottom:18px;background:#163b64;color:#fff;padding:8px 11px;border-radius:999px;font-size:11px}
+@media(max-width:720px){.nav{display:none}.hero{padding-top:54px}.hero h1{font-size:34px}.card{padding:26px 22px;border-radius:22px}.meta-top{flex-direction:column}.status{white-space:normal}.progress{overflow-x:auto}.node{min-width:110px}.node:before{display:none}.info{grid-template-columns:1fr}}
+</style>
+</head><body>
+<header class="top"><div class="logo">NIO <span>蔚来招聘</span></div><nav class="nav"><span>加入蔚来</span><span>校园招聘</span><span>职位</span><b>应聘记录</b></nav><div class="user">09 · 账号中心</div></header>
+<section class="hero"><div class="ring"></div><h1>应聘记录</h1><p>与你一起，看见更远的未来。</p></section>
+<main class="wrap"><div class="toolbar"><h2>我的申请</h2><span class="pill">Campus 2027</span></div>
+<article class="card"><div class="meta-top"><div><span class="date">APPLIED · 2026 / 08 / 17</span><h3>大模型算法工程师<br>智能座舱 Agent 方向</h3><div class="sub">上海 · 智能座舱与数字体验 · 校园招聘</div></div><div class="status">简历评估中</div></div>
+<div class="progress">
+<div class="node done"><div class="dot"></div>已投递</div>
+<div class="node current"><div class="dot"></div>简历评估</div>
+<div class="node"><div class="dot"></div>专业面试</div>
+<div class="node"><div class="dot"></div>综合面试</div>
+<div class="node"><div class="dot"></div>结果沟通</div>
+</div>
+<div class="info"><div><small>职位类别</small><b>算法 / 人工智能</b></div><div><small>工作地点</small><b>上海</b></div><div><small>申请编号</small><b>NIO-C27-0817-09</b></div></div>
+</article><div class="note">当前仅展示 1 条申请记录</div></main><div class="demo">DEMO · 非官方页面</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"45c2bf8136a245cd97f1c2e9a96c0730"}' crossorigin="anonymous"></script>
+</body></html>
