@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>投递记录 - 得物招聘</title>
+  <style>
+    :root {
+      --text: #111820;
+      --muted: #8a949f;
+      --line: #edf0f2;
+      --accent: #19c8b2;
+      --blue: #2388ff;
+      --page: #ffffff;
+      --hero: #f7fafb;
+      --shadow: 0 14px 36px rgba(17, 24, 32, 0.045);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--page);
+      color: var(--text);
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+        "Noto Sans CJK SC", Arial, sans-serif;
+    }
+
+    body {
+      min-width: 320px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .header {
+      height: 84px;
+      border-bottom: 1px solid #f1f2f3;
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,.98);
+    }
+
+    .header-inner {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 59px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      border-radius: 12px;
+      background: #10171f;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .brand-mark span {
+      color: #19d4ba;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1;
+      transform: translateY(-1px);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      min-width: 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 43px;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    .nav a {
+      transition: opacity .18s ease;
+    }
+
+    .nav a:hover {
+      opacity: .62;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 33px;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #e7f7f5;
+      border: 1px solid #d8efed;
+      display: grid;
+      place-items: center;
+      color: #466b75;
+      font-size: 15px;
+    }
+
+    .phone {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chevron {
+      font-size: 14px;
+      color: #2e3841;
+      margin-top: 1px;
+    }
+
+    .hero {
+      height: 192px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #f0f3f4;
+      background:
+        radial-gradient(circle at 15% 35%, rgba(31, 211, 190, .115), rgba(31, 211, 190, 0) 26%),
+        linear-gradient(90deg, #f7fafb 0%, #fbfcfd 48%, #f7fafb 100%);
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 38px;
+      line-height: 1.22;
+      font-weight: 800;
+      letter-spacing: -1.1px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #8d97a1;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .main {
+      padding: 58px 0 110px;
+    }
+
+    .content {
+      width: calc(100% - 244px);
+      max-width: 1474px;
+      min-width: 0;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -.35px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 7px;
+      height: 31px;
+      border-radius: 8px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .card {
+      min-height: 202px;
+      border: 1px solid #edf0f2;
+      border-radius: 19px;
+      box-shadow: var(--shadow);
+      background: #fff;
+      padding: 39px 41px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+    }
+
+    .job {
+      min-width: 0;
+      padding-right: 12px;
+    }
+
+    .job h2 {
+      margin: 0 0 15px;
+      font-size: 28px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: -.8px;
+    }
+
+    .status {
+      margin-bottom: 18px;
+      color: var(--blue);
+      font-size: 19px;
+      line-height: 1.4;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0;
+      color: #313942;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .meta span {
+      padding: 0 22px;
+      border-right: 1px solid #dfe3e6;
+    }
+
+    .meta span:first-child {
+      padding-left: 0;
+    }
+
+    .meta span:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .detail-button {
+      width: 129px;
+      height: 58px;
+      border-radius: 13px;
+      border: 1px solid #e0e4e8;
+      background: #fff;
+      color: #222a31;
+      font-size: 17px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .detail-button:hover {
+      border-color: #cfd6dc;
+      box-shadow: 0 7px 18px rgba(17, 24, 32, .06);
+      transform: translateY(-1px);
+    }
+
+    .empty {
+      margin-top: 44px;
+      text-align: center;
+      color: #b8c0c6;
+      font-size: 19px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 14, 20, .32);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 10;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .modal {
+      width: min(480px, 100%);
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.18);
+    }
+
+    .modal h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .modal p {
+      margin: 0;
+      color: #66717b;
+      line-height: 1.7;
+    }
+
+    .modal-close {
+      margin-top: 22px;
+      width: 100%;
+      height: 44px;
+      border: 0;
+      border-radius: 10px;
+      background: #111820;
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    @media (max-width: 1100px) {
+      .header-inner {
+        padding: 0 30px;
+      }
+
+      .header-right {
+        gap: 28px;
+      }
+
+      .nav {
+        gap: 25px;
+      }
+
+      .phone {
+        display: none;
+      }
+
+      .content {
+        width: calc(100% - 80px);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .header {
+        height: 70px;
+      }
+
+      .header-inner {
+        padding: 0 18px;
+      }
+
+      .brand {
+        font-size: 21px;
+        gap: 10px;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+      }
+
+      .brand-mark span {
+        font-size: 17px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .profile {
+        gap: 0;
+      }
+
+      .hero {
+        height: 170px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 15px;
+        padding: 0 18px;
+      }
+
+      .main {
+        padding-top: 36px;
+      }
+
+      .content {
+        width: calc(100% - 36px);
+      }
+
+      .section-title {
+        font-size: 21px;
+        margin-bottom: 20px;
+      }
+
+      .section-title::before {
+        height: 26px;
+      }
+
+      .card {
+        min-height: auto;
+        padding: 27px 24px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .job {
+        padding: 0;
+      }
+
+      .job h2 {
+        font-size: 22px;
+      }
+
+      .status {
+        font-size: 16px;
+      }
+
+      .meta {
+        font-size: 14px;
+        gap: 9px 0;
+      }
+
+      .meta span {
+        padding: 0 13px;
+      }
+
+      .detail-button {
+        width: 100%;
+        height: 48px;
+      }
+
+      .empty {
+        margin-top: 30px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="得物招聘">
+        <span class="brand-mark"><span>D</span></span>
+        <span>得物招聘</span>
+      </a>
+
+      <div class="header-right">
+        <nav class="nav" aria-label="主导航">
+          <a href="#">首页</a>
+          <a href="#">校园招聘</a>
+          <a href="#">投递记录</a>
+        </nav>
+
+        <div class="profile">
+          <span class="avatar">09</span>
+          <span class="phone">+86 157****0909 <span class="chevron">⌄</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>投递记录</h1>
+      <p>查看岗位申请进度与历史投递记录</p>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="content">
+      <div class="section-title">已完成的投递 (1)</div>
+
+      <section class="card" aria-label="投递记录">
+        <div class="job">
+          <h2>【2027届秋招】大模型算法工程师</h2>
+          <div class="status">当前进度：简历初筛-未处理</div>
+          <div class="meta">
+            <span>校园招聘</span>
+            <span>2026-08-17 09:42 投递</span>
+            <span>上海 · 技术研发</span>
+          </div>
+        </div>
+
+        <button class="detail-button" type="button" id="detailBtn">查看详情</button>
+      </section>
+
+      <div class="empty">没有更多了~</div>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <h3 id="modalTitle">投递详情</h3>
+      <p>【2027届秋招】大模型算法工程师<br>当前进度：简历初筛-未处理<br>投递时间：2026-08-17 09:42<br>地点：上海 · 技术研发</p>
+      <button class="modal-close" id="modalClose" type="button">关闭</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    document.getElementById('detailBtn').addEventListener('click', () => {
+      modal.classList.add('show');
+    });
+    document.getElementById('modalClose').addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) modal.classList.remove('show');
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') modal.classList.remove('show');
+    });
+  </script>
+</body>
+</html>
