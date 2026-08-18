@@ -11,11 +11,19 @@
 | 理想汽车 | https://zyd-go.github.io/dewu-recruitment/lixiang.html |
 | 蔚来 | https://zyd-go.github.io/dewu-recruitment/nio.html |
 | 影石 Insta360 | https://zyd-go.github.io/dewu-recruitment/insta360.html |
+| 百度 | https://zyd-go.github.io/dewu-recruitment/百度招聘_投递记录.html |
+| 米哈游 | https://zyd-go.github.io/dewu-recruitment/米哈游招聘_投递记录.html |
+| 小米 | https://zyd-go.github.io/dewu-recruitment/小米招聘_投递记录.html |
+| 大疆 | https://zyd-go.github.io/dewu-recruitment/大疆招聘_投递记录.html |
+| 携程 | https://zyd-go.github.io/dewu-recruitment/携程招聘_投递记录.html |
+| 360 | https://zyd-go.github.io/dewu-recruitment/360招聘_投递记录.html |
+| 贝壳 | https://zyd-go.github.io/dewu-recruitment/贝壳招聘_投递记录.html |
 
 ## 文件说明
 
 - `index.html`：得物投递记录页面（CSS/JS 内嵌）
 - `didi.html` / `lixiang.html` / `nio.html` / `insta360.html`：对应四家公司页面
+- `百度招聘_投递记录.html` / `米哈游招聘_投递记录.html` / `小米招聘_投递记录.html` / `大疆招聘_投递记录.html` / `携程招聘_投递记录.html` / `360招聘_投递记录.html` / `贝壳招聘_投递记录.html`：对应七家公司页面
 - `vercel.json` / `netlify.toml`：Vercel / Netlify 静态部署配置（备用）
 
 ## 说明
